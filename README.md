@@ -4,16 +4,6 @@ api for music sharing platform that allows anyone to create, listen and share mu
 ## developers
 Our API allows you to retrieve informations from unelmamusic.com via GET request and supports the following query parameters: 
 
-
-|get |	This parameter specify the type of the query: users, pages and groups |
-||        - users is for user profile informations|
-||        - pages is for pages informations|
-||        - groups is for groups informations | 
-|query |	The query string |	
-
-
-
-
 |Name     |	Meaning  |	Description |
 | ------------- | ------------- | -------------|
 |t (required)	|Query type.	|This parameter specify the type of the query, u is for profile informations, t is for tracks informations.|
@@ -47,16 +37,20 @@ Our API allows you to retrieve informations from unelmamusic.com via GET request
 Examples of requests:
 
 For profile information of a user: 
+```
 https://www.unelmamusic.com/api.php?t=u&q=USERNAME 
+```
 
 For a list of latest 20 tracks uploaded by a user: 
+```
 https://www.unelmamusic.com/api.php?t=t&q=USERNAME 
-
+```
 
 An example of json decoding would be the following PHP code: 
-
+```
 <?php
 header('Content-Type: text/plain; charset=utf-8;'); 
 $file = file_get_contents("https://www.unelmamusic.com/api.php?t=t&q=USERNAME");
 print_r(json_decode($file));
 ?>
+```
